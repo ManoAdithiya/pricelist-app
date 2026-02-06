@@ -92,19 +92,19 @@ function Login() {
 
           <ul>
             <li>
-              <a href="">{t("Home")}</a>
+              <a href="#">{t("Home")}</a>
             </li>
             <li>
-              <a href="">{t("Order")}</a>
+              <a href="#">{t("Order")}</a>
             </li>
             <li>
-              <a href="">{t("OurCustomer")}</a>
+              <a href="#">{t("OurCustomer")}</a>
             </li>
             <li>
-              <a href="">{t("AboutUs")}</a>
+              <a href="#">{t("AboutUs")}</a>
             </li>
             <li>
-              <a href="">{t("contact")}</a>
+              <a href="#">{t("contact")}</a>
             </li>
             <div className="langSelect">
               <button
@@ -171,10 +171,10 @@ function Login() {
           </div>
           <button type="submit">{t("Log in")}</button>
           <div className="register">
-            <a className="re" href="">
+            <a className="re" href="#">
               {t("register")}
             </a>
-            <a className="fo" href="">
+            <a className="fo" href="#">
               {t("forgot")}
             </a>
           </div>
