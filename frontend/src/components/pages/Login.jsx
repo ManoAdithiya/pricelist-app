@@ -40,6 +40,8 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Email:", email);
+    console.log("Password:", password);
 
     let isValid = true;
 
@@ -63,17 +65,20 @@ function Login() {
     if (!isValid) return;
 
     try {
-      const res=await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api/auth/login`,
+        {
+          email,
+          password,
+        },
+      );
 
       localStorage.setItem("token", res.data.token);
 
       navigate("/pricelist");
     } catch (err) {
       console.error(err);
-      // alert("Invalid email or password");
+
       alert(err.response?.data?.message || "Login failed");
     }
   };
@@ -145,7 +150,7 @@ function Login() {
           <h1>{t("login")}</h1>
           <label>{t("emailLabel")}</label>
           <input
-            type="text"
+            type="email"
             placeholder={t("emailPlaceholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
