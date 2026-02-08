@@ -166,13 +166,32 @@ function PriceList() {
                 </tr>
               </thead>
               <tbody>
-                {products.map((item) => (
+                {Array.isArray(products) &&
+                  products.map((item) => (
+                    <tr key={item.id}>
+                      <td className="arrow-right">
+                      <img src={dotsIcon} />
+                    </td>
+                      <td className="col-article">{item.article_no}</td>
+                      <td className="col-product">{item.product}</td>
+                      <td className="col-inprice">{item.in_price}</td>
+                      <td className="col-price">{item.price}</td>
+                      <td className="col-unit">{item.unit}</td>
+                      <td className="col-stock">{item.stock}</td>
+                      <td className="col-desc">{item.description}</td>
+                      <td className="arrow-right">
+                      <img src={arrowIcon} />
+                    </td>
+                    </tr>
+                  ))}
+
+                {/* {products.map((item) => (
                   <tr key={item.id}>
                     <td className="arrow-right">
                       <img src={dotsIcon} />
-                    </td>
+                    </td> */}
 
-                    <td className="col-article">{item.article_no || "-"}</td>
+                    {/* <td className="col-article">{item.article_no || "-"}</td>
                     <td className="col-product">{item.product}</td>
                     <td className="col-inprice">
                       {Number(item.in_price).toFixed(2)}
@@ -182,12 +201,12 @@ function PriceList() {
                     </td>
                     <td className="col-unit">{item.unit}</td>
                     <td className="col-stock">{item.stock}</td>
-                    <td className="col-desc">{item.description}</td>
-                    <td className="arrow-right">
+                    <td className="col-desc">{item.description}</td> */}
+                    {/* <td className="arrow-right">
                       <img src={arrowIcon} />
                     </td>
-                  </tr>
-                ))}
+                  </tr> */}
+                {/* ))} */}
               </tbody>
             </table>
           </div>
