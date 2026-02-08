@@ -24,3 +24,8 @@ app.listen(process.env.PORT, () => {
 app.get("/", (req, res) => {
   res.send("API is running");
 });
+router.get("/", auth, async (req, res) => {
+  const result = await pool.query("SELECT * FROM products");
+  res.json(result.rows);
+});
+
