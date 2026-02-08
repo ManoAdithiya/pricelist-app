@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/pricelist.css";
 import axios from "axios";
-import Header from "./Header";
 
 function PriceList() {
   const [products, setProducts] = useState([]);
@@ -28,6 +27,7 @@ function PriceList() {
             <img src="\src\assets\avatar1.png" alt="#" className="avatar" />
             <span className="status-dot online profile-status"></span>
           </div>
+          <span className="pl-hamburger">&#9776;</span>
           <div className="user-info">
             <h4>John Andre</h4>
             <p>Storfjord AS</p>

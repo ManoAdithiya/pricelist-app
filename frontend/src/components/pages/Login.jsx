@@ -17,6 +17,7 @@ function Login() {
   const { i18n } = useTranslation();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const options = [
     {
@@ -87,12 +88,16 @@ function Login() {
     <>
       <div className="main-wrapper">
         <nav className="navbar">
-          <div>
+          <div className="nav-left">
+            <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+              ☰
+            </div>
+
             <img
               src="https://storage.123fakturera.se/public/icons/diamond.png"
               alt="Logo"
               className="logo"
-            ></img>
+            />
           </div>
 
           <ul>
@@ -145,6 +150,15 @@ function Login() {
             </div>
           </ul>
         </nav>
+        {menuOpen && (
+          <div className="mobile-menu">
+            <a href="#">{t("Home")}</a>
+            <a href="#">{t("Order")}</a>
+            <a href="#">{t("OurCustomer")}</a>
+            <a href="#">{t("AboutUs")}</a>
+            <a href="#">{t("contact")}</a>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit}>
           <h1>{t("login")}</h1>

@@ -19,6 +19,9 @@ html,
 
 .navbar {
   display: flex;
+  margin-top: 10px;
+
+  height: 100px;
 }
 .logo {
   width: 60px;
@@ -34,7 +37,7 @@ html,
   color: white;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 55%;
   position: relative;
   margin: auto;
 }
@@ -44,7 +47,7 @@ html,
 .navbar a {
   color: rgb(255, 255, 255);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -107,7 +110,7 @@ html,
 form {
   background-color: white;
   color: white;
-  padding: 20px 50px 20px 50px;
+  padding: 10px 50px 10px 50px;
   border-radius: 40px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 400px;
@@ -230,4 +233,59 @@ form button {
   text-align: center;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  margin: 50px;
+}
+
+.hamburger {
+  font-size: 36px;
+  cursor: pointer;
+  display: none;
+  color: white;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 135px;
+  left: 50px;
+  width: 260px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  padding: 10px 0;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 18px 30px;
+  color: #222;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.mobile-menu a:hover {
+  background: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .logo {
+    display: none;
+  }
+  .langSelect {
+    display: block;
+  }
+
+  .navbar a {
+    display: none;
+  }
+  .langSelect {
+    display: block;
+  }
 }

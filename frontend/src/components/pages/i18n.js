@@ -13,7 +13,7 @@ const resources = {
       forgot: "Forgotten password?",
       Home: "Home",
       Order: "Order",
-      OurCustomer: "Out Customers",
+      OurCustomer: "Our Customers",
       AboutUs: "About us",
       contact: "Contact Us",
     },
@@ -33,7 +33,6 @@ const resources = {
       OurCustomer: "Våra Kunder",
       AboutUs: "Om oss",
       contact: "Kontakta oss",
-      
     },
   },
 };
