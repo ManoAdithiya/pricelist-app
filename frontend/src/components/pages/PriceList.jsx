@@ -30,11 +30,14 @@ function PriceList() {
     const fetchProducts = async () => {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/api/pricelist", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const res = await axios.get(
+        import.meta.env.VITE_API_URL + "/api/pricelist",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       setProducts(res.data);
     };
@@ -118,7 +121,7 @@ function PriceList() {
             <div className="search-group">
               <div className="search-area">
                 <input type="text" placeholder="Search Article No..." />
-                <img src="\src\assets\search.png" alt="search"></img>
+                <img src={searchIcon} alt="search" />
               </div>
               <div className="search-area">
                 <input type="text" placeholder="Search Product..." />
@@ -169,10 +172,14 @@ function PriceList() {
                       <img src={dotsIcon} />
                     </td>
 
-                    <td className="col-article">{item.article_no}</td>
+                    <td className="col-article">{item.article_no || "-"}</td>
                     <td className="col-product">{item.product}</td>
-                    <td className="col-inprice">{item.in_price}</td>
-                    <td className="col-price">{item.price}</td>
+                    <td className="col-inprice">
+                      {Number(item.in_price).toFixed(2)}
+                    </td>
+                    <td className="col-price">
+                      {Number(item.price).toFixed(2)}
+                    </td>
                     <td className="col-unit">{item.unit}</td>
                     <td className="col-stock">{item.stock}</td>
                     <td className="col-desc">{item.description}</td>
