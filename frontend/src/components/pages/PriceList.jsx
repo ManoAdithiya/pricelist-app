@@ -1,6 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "../styles/pricelist.css";
 import axios from "axios";
+import avatar from "../assets/avatar1.png";
+import invoice from "../assets/invoice.png";
+import customers from "../assets/customers.png";
+import mybusiness from "../assets/mybusiness.png";
+import invoiceJournal from "../assets/invoice2.png";
+import priceList from "../assets/PriceList.png";
+import invoiceMulti from "../assets/invoice3.png";
+import unpaid from "../assets/invoice4.png";
+import offer from "../assets/offer.png";
+import inventory from "../assets/InventoryControl.png";
+import member from "../assets/invoice5.png";
+import importExport from "../assets/ImportExport.png";
+import logout from "../assets/Logout.png";
+
+import searchIcon from "../assets/search.png";
+import plusIcon from "../assets/plus.png";
+import printIcon from "../assets/print.png";
+import advanceIcon from "../assets/advancebtn.png";
+
+import articleIcon from "../assets/artical.png";
+import serviceIcon from "../assets/service.png";
+import arrowIcon from "../assets/arrow.png";
+import dotsIcon from "../assets/three-dots.png";
 
 function PriceList() {
   const [products, setProducts] = useState([]);
@@ -24,7 +47,7 @@ function PriceList() {
       <header className="topbar">
         <div className="topbar-left">
           <div className="profile">
-            <img src="\src\assets\avatar1.png" alt="#" className="avatar" />
+            <img src={avatar} className="avatar" />
             <span className="status-dot online profile-status"></span>
           </div>
           <span className="pl-hamburger">&#9776;</span>
@@ -50,56 +73,43 @@ function PriceList() {
 
           <ul className="menu">
             <li className="active">
-              <img src="\src\assets\invoice.png" alt="invoices"></img>Invoices
+              <img src={invoice} className="invoices" />
+              Invoices
             </li>
             <li>
-              <img src="\src\assets\customers.png" alt="customers"></img>
+              <img src={customers} className="customers" />
               Customers
             </li>
             <li>
-              <img src="\src\assets\mybusiness.png" alt="mybusiness"></img>My
-              Business
+              <img src={mybusiness} /> My Business
             </li>
             <li>
-              <img src="\src\assets\invoice2.png" alt="invoice Journal"></img>
-              Invoice Journal
+              <img src={invoiceJournal} /> Invoice Journal
             </li>
             <li className="active">
               <span className="status-dot online"></span>
-              <img src="\src\assets\PriceList.png" alt="PriceList"></img>Price
-              List
+              <img src={priceList} /> Price List
             </li>
             <li>
-              <img
-                src="\src\assets\invoice3.png"
-                alt="Multiple Invoicing"
-              ></img>
-              Multiple Invoicing
+              <img src={invoiceMulti} /> Multiple Invoicing
             </li>
             <li>
-              <img src="\src\assets\invoice4.png" alt="Unpaid Invoices"></img>
-              Unpaid Invoices
+              <img src={unpaid} /> Unpaid Invoices
             </li>
             <li>
-              <img src="\src\assets\offer.png" alt="offer"></img>Offer
+              <img src={offer} /> Offer
             </li>
             <li>
-              <img
-                src="\src\assets\InventoryControl.png"
-                alt="Inventory Control"
-              ></img>
-              Inventory Control
+              <img src={inventory} /> Inventory Control
             </li>
             <li>
-              <img src="\src\assets\invoice5.png" alt="Member Invoicing"></img>
-              Member Invoicing
+              <img src={member} /> Member Invoicing
             </li>
             <li>
-              <img src="\src\assets\ImportExport.png" alt="ImportExport"></img>
-              Import/Export
+              <img src={importExport} /> Import/Export
             </li>
             <li>
-              <img src="\src\assets\Logout.png" alt="Logout"></img>Log out
+              <img src={logout} /> Log out
             </li>
           </ul>
         </aside>
@@ -113,21 +123,19 @@ function PriceList() {
               </div>
               <div className="search-area">
                 <input type="text" placeholder="Search Product..." />
-                <img src="\src\assets\search.png" alt="search"></img>
+                <img src={searchIcon} alt="search" />
               </div>
             </div>
 
             <div className="action-area">
               <button className="btn">
-                New Product
-                <img src="\src\assets\plus.png" alt="New Product"></img>
+                New Product <img src={plusIcon} />
               </button>
               <button className="btn">
-                Print List<img src="\src\assets\print.png" alt="print"></img>
+                Print List <img src={printIcon} />
               </button>
               <button className="btn">
-                Advanced mode
-                <img src="\src\assets\advancebtn.png" alt="Advanced mode"></img>
+                Advanced mode <img src={advanceIcon} />
               </button>
             </div>
           </div>
@@ -140,20 +148,12 @@ function PriceList() {
 
                   <th className="col-article">
                     Artical No.
-                    <img
-                      src="/src/assets/artical.png"
-                      className="th-icon"
-                      alt="Artical"
-                    />
+                    <img src={articleIcon} className="th-icon" />
                   </th>
 
                   <th className="col-product">
                     Product/Service
-                    <img
-                      src="/src/assets/service.png"
-                      className="th-icon"
-                      alt="Product service"
-                    />
+                    <img src={serviceIcon} className="th-icon" />
                   </th>
 
                   <th className="col-inprice">In Price</th>
@@ -167,7 +167,7 @@ function PriceList() {
                 {products.map((item) => (
                   <tr key={item.id}>
                     <td className="arrow-right">
-                      <img src="\src\assets\arrow.png" alt="arrow" />
+                      <img src={dotsIcon} />
                     </td>
 
                     <td className="col-article">{item.article_no}</td>
