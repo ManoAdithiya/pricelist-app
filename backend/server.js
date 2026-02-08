@@ -13,19 +13,18 @@ app.use("/api/pricelist", pricelistRoutes);
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://pricelist-app-mu.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://pricelist-app-mu.vercel.app"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  }),
+    credentials: true
+  })
 );
 app.listen(process.env.PORT, () => {
   console.log("Server running on port", process.env.PORT);
 });
 app.get("/", (req, res) => {
   res.send("API is running");
-});
-router.get("/", auth, async (req, res) => {
-  const result = await pool.query("SELECT * FROM products");
-  res.json(result.rows);
 });
 
