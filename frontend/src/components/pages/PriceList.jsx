@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "../styles/pricelist.css";
 import axios from "axios";
-import avatar from "../assets/avatar1.png";
-import invoice from "../assets/invoice.png";
-import customers from "../assets/customers.png";
-import mybusiness from "../assets/mybusiness.png";
-import invoiceJournal from "../assets/invoice2.png";
-import priceList from "../assets/PriceList.png";
-import invoiceMulti from "../assets/invoice3.png";
-import unpaid from "../assets/invoice4.png";
-import offer from "../assets/offer.png";
-import inventory from "../assets/InventoryControl.png";
-import member from "../assets/invoice5.png";
-import importExport from "../assets/ImportExport.png";
-import logout from "../assets/Logout.png";
+import avatar from "../../assets/avatar1.png";
+import invoice from "../../assets/invoice.png";
+import customers from "../../assets/customers.png";
+import mybusiness from "../../assets/mybusiness.png";
+import invoice2 from "../../assets/invoice2.png";
+import priceList from "../../assets/PriceList.png";
+import invoice3 from "../../assets/invoice3.png";
+import invoice4 from "../../assets/invoice4.png";
+import offer from "../../assets/offer.png";
+import inventory from "../../assets/InventoryControl.png";
+import invoice5 from "../../assets/invoice5.png";
+import importExport from "../../assets/ImportExport.png";
+import logout from "../../assets/Logout.png";
 
-import searchIcon from "../assets/search.png";
-import plusIcon from "../assets/plus.png";
-import printIcon from "../assets/print.png";
-import advanceIcon from "../assets/advancebtn.png";
-
-import articleIcon from "../assets/artical.png";
-import serviceIcon from "../assets/service.png";
-import arrowIcon from "../assets/arrow.png";
-import dotsIcon from "../assets/three-dots.png";
+import searchIcon from "../../assets/search.png";
+import plusIcon from "../../assets/plus.png";
+import printIcon from "../../assets/print.png";
+import advanceIcon from "../../assets/advancebtn.png";
+import arrowIcon from "../../assets/arrow.png";
+import dotsIcon from "../../assets/three-dots.png";
+import articleIcon from "../../assets/artical.png";
+import serviceIcon from "../../assets/service.png";
 
 function PriceList() {
   const [products, setProducts] = useState([]);
@@ -84,17 +83,17 @@ function PriceList() {
               <img src={mybusiness} /> My Business
             </li>
             <li>
-              <img src={invoiceJournal} /> Invoice Journal
+              <img src={invoice2} /> Invoice Journal
             </li>
             <li className="active">
               <span className="status-dot online"></span>
               <img src={priceList} /> Price List
             </li>
             <li>
-              <img src={invoiceMulti} /> Multiple Invoicing
+              <img src={invoice3} /> Multiple Invoicing
             </li>
             <li>
-              <img src={unpaid} /> Unpaid Invoices
+              <img src={invoice4} /> Unpaid Invoices
             </li>
             <li>
               <img src={offer} /> Offer
@@ -103,7 +102,7 @@ function PriceList() {
               <img src={inventory} /> Inventory Control
             </li>
             <li>
-              <img src={member} /> Member Invoicing
+              <img src={invoice5} /> Member Invoicing
             </li>
             <li>
               <img src={importExport} /> Import/Export
@@ -178,7 +177,7 @@ function PriceList() {
                     <td className="col-stock">{item.stock}</td>
                     <td className="col-desc">{item.description}</td>
                     <td className="arrow-right">
-                      <img src="\src\assets\three-dots.png" alt="three-dots" />
+                      <img src={arrowIcon} />
                     </td>
                   </tr>
                 ))}
