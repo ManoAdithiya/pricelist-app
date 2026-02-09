@@ -20,7 +20,6 @@ html,
 .navbar {
   display: flex;
   margin-top: 10px;
-
   height: 100px;
 }
 .logo {
@@ -64,7 +63,6 @@ html,
   cursor: pointer;
   font-size: 18px;
   color: white;
-
   display: flex;
   align-items: center;
   gap: 12px;
@@ -72,7 +70,6 @@ html,
 
 .flagIcon {
   width: 30px;
-
   padding: 1px;
   height: 20px;
   border-radius: 3px;
@@ -96,7 +93,6 @@ html,
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 8px 2px 8px 5px;
   font-size: 16px;
   cursor: pointer;
@@ -116,7 +112,6 @@ form {
   width: 400px;
   height: auto;
   margin: auto;
-
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;

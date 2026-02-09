@@ -170,8 +170,8 @@ function PriceList() {
                   products.map((item) => (
                     <tr key={item.id}>
                       <td className="arrow-right">
-                      <img src={dotsIcon} />
-                    </td>
+                        <img src={dotsIcon} />
+                      </td>
                       <td className="col-article">{item.article_no}</td>
                       <td className="col-product">{item.product}</td>
                       <td className="col-inprice">{item.in_price}</td>
@@ -180,33 +180,10 @@ function PriceList() {
                       <td className="col-stock">{item.stock}</td>
                       <td className="col-desc">{item.description}</td>
                       <td className="arrow-right">
-                      <img src={arrowIcon} />
-                    </td>
+                        <img src={arrowIcon} />
+                      </td>
                     </tr>
                   ))}
-
-                {/* {products.map((item) => (
-                  <tr key={item.id}>
-                    <td className="arrow-right">
-                      <img src={dotsIcon} />
-                    </td> */}
-
-                    {/* <td className="col-article">{item.article_no || "-"}</td>
-                    <td className="col-product">{item.product}</td>
-                    <td className="col-inprice">
-                      {Number(item.in_price).toFixed(2)}
-                    </td>
-                    <td className="col-price">
-                      {Number(item.price).toFixed(2)}
-                    </td>
-                    <td className="col-unit">{item.unit}</td>
-                    <td className="col-stock">{item.stock}</td>
-                    <td className="col-desc">{item.description}</td> */}
-                    {/* <td className="arrow-right">
-                      <img src={arrowIcon} />
-                    </td>
-                  </tr> */}
-                {/* ))} */}
               </tbody>
             </table>
           </div>

@@ -250,14 +250,8 @@
 .price-table tbody tr:hover {
   background: #f7fbff;
 }
-/* Default: Desktop */
 .pl-hamburger {
   display: none;
-}
-
-.profile,
-.user-info {
-  display: flex;
 }
 
 @media (max-width: 1024px) {
