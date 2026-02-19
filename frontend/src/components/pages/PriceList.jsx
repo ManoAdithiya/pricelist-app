@@ -53,7 +53,9 @@ function PriceList() {
       },
     );
 
-    setProducts((prev) => prev.map((p) => (p.id === editId ? editData : p)));
+    setProducts((prev) =>
+      prev.map((p) => (p.id === editId ? { ...p, ...editData } : p)),
+    );
 
     setEditId(null);
   };

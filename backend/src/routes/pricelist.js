@@ -4,7 +4,7 @@ const pool = require("../config/db");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const result = await pool.query("SELECT * FROM products");
+  const result = await pool.query("SELECT * FROM products ORDER BY id ASC");
   res.json(result.rows);
 });
 
