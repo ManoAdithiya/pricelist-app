@@ -170,7 +170,7 @@ function PriceList() {
                   products.map((item) => (
                     <tr key={item.id}>
                       <td className="arrow-right">
-                        <img src={dotsIcon} />
+                        <img src={arrowIcon} />
                       </td>
                       <td className="col-article">{item.article_no}</td>
                       <td className="col-product">{item.product}</td>
@@ -180,7 +180,7 @@ function PriceList() {
                       <td className="col-stock">{item.stock}</td>
                       <td className="col-desc">{item.description}</td>
                       <td className="arrow-right">
-                        <img src={arrowIcon} />
+                        <img src={dotsIcon} />
                       </td>
                     </tr>
                   ))}
