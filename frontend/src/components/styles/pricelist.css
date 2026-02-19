@@ -184,9 +184,26 @@
   vertical-align: middle;
   cursor: pointer;
 }
+.pill {
+  display: inline-block;
+  background: #eef3f7;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #333;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .arrow-right {
   width: 30px;
   text-align: center;
+}
+td {
+  padding: 10px 8px;
+  vertical-align: middle;
 }
 .arrow-right img {
   width: 15px;

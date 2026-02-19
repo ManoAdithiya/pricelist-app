@@ -172,13 +172,27 @@ function PriceList() {
                       <td className="arrow-right">
                         <img src={arrowIcon} />
                       </td>
-                      <td className="col-article">{item.article_no}</td>
-                      <td className="col-product">{item.product}</td>
-                      <td className="col-inprice">{item.in_price}</td>
-                      <td className="col-price">{item.price}</td>
-                      <td className="col-unit">{item.unit}</td>
-                      <td className="col-stock">{item.stock}</td>
-                      <td className="col-desc">{item.description}</td>
+                      <td className="col-article">
+                        <span className="pill">{item.article_no}</span>
+                      </td>
+                      <td className="col-product">
+                        <span className="pill">{item.product}</span>
+                      </td>
+                      <td className="col-inprice">
+                        <span className="pill">{item.in_price}</span>
+                      </td>
+                      <td className="col-price">
+                        <span className="pill">{item.price}</span>
+                      </td>
+                      <td className="col-unit">
+                        <span className="pill">{item.unit}</span>
+                      </td>
+                      <td className="col-stock">
+                        <span className="pill">{item.stock}</span>
+                      </td>
+                      <td className="col-desc">
+                        <span className="pill">{item.description}</span>
+                      </td>
                       <td className="arrow-right">
                         <img src={dotsIcon} />
                       </td>
