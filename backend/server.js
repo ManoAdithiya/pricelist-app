@@ -6,7 +6,7 @@ const pricelistRoutes = require("./src/routes/pricelist");
 const app = express();
 const pool = require("./src/config/db");
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/pricelist", pricelistRoutes);

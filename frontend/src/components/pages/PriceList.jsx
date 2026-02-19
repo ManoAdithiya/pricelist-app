@@ -26,6 +26,38 @@ import serviceIcon from "../../assets/service.png";
 
 function PriceList() {
   const [products, setProducts] = useState([]);
+  const [editId, setEditId] = useState(null);
+  const [editData, setEditData] = useState({});
+
+  const handleEditClick = (item) => {
+    setEditId(item.id);
+    setEditData(item);
+  };
+  const handleChange = (e) => {
+    setEditData({
+      ...editData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSave = async () => {
+    const token = localStorage.getItem("token");
+
+    await axios.put(
+      `${import.meta.env.VITE_API_BASE_URL}/api/pricelist/${editId}`,
+      editData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+
+    setProducts((prev) => prev.map((p) => (p.id === editId ? editData : p)));
+
+    setEditId(null);
+  };
+
   useEffect(() => {
     const fetchProducts = async () => {
       const token = localStorage.getItem("token");
@@ -44,6 +76,7 @@ function PriceList() {
 
     fetchProducts();
   }, []);
+
   return (
     <div className="layout">
       <header className="topbar">
@@ -169,32 +202,98 @@ function PriceList() {
                 {Array.isArray(products) &&
                   products.map((item) => (
                     <tr key={item.id}>
-                      <td className="arrow-right">
+                      <td className="arrow-left">
                         <img src={arrowIcon} />
                       </td>
                       <td className="col-article">
-                        <span className="pill">{item.article_no}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="article_no"
+                            value={editData.article_no}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.article_no}</span>
+                        )}
                       </td>
                       <td className="col-product">
-                        <span className="pill">{item.product}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="product"
+                            value={editData.product}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.product}</span>
+                        )}
                       </td>
                       <td className="col-inprice">
-                        <span className="pill">{item.in_price}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="in_price"
+                            value={editData.in_price}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.in_price}</span>
+                        )}
                       </td>
                       <td className="col-price">
-                        <span className="pill">{item.price}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="price"
+                            value={editData.price}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.price}</span>
+                        )}
                       </td>
                       <td className="col-unit">
-                        <span className="pill">{item.unit}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="unit"
+                            value={editData.unit}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.unit}</span>
+                        )}
                       </td>
                       <td className="col-stock">
-                        <span className="pill">{item.stock}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="stock"
+                            value={editData.stock}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.stock}</span>
+                        )}
                       </td>
                       <td className="col-desc">
-                        <span className="pill">{item.description}</span>
+                        {editId === item.id ? (
+                          <input
+                            name="description"
+                            value={editData.description}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span className="pill">{item.description}</span>
+                        )}
                       </td>
                       <td className="arrow-right">
-                        <img src={dotsIcon} />
+                        {editId === item.id ? (
+                          <button className="save-btn" onClick={handleSave}>
+                            Save
+                          </button>
+                        ) : (
+                          <img
+                            src={dotsIcon}
+                            onClick={() => handleEditClick(item)}
+                            style={{ cursor: "pointer" }}
+                          />
+                        )}
                       </td>
                     </tr>
                   ))}

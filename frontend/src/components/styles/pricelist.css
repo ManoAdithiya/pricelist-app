@@ -186,32 +186,48 @@
 }
 .pill {
   display: inline-block;
-  background: #eef3f7;
+  background: #ffffff;
+  border: 1.5px solid #afacac;
   padding: 8px 14px;
-  border-radius: 999px;
+  border-radius: 20px;
   font-size: 13px;
-  color: #333;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .arrow-right {
+  padding: 0;
   width: 30px;
   text-align: center;
 }
-td {
-  padding: 10px 8px;
-  vertical-align: middle;
+.arrow-left {
+  padding: 0;
+  width: 30px;
+  text-align: end;
 }
+
 .arrow-right img {
-  width: 15px;
-  height: 15px;
+  width: 22px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
   cursor: pointer;
   opacity: 0.7;
 }
+.arrow-left img {
+  width: 22px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  opacity: 0.7;
+  text-align: end;
+}
 .arrow-right img:hover {
+  opacity: 20;
+}
+.arrow-left img:hover {
   opacity: 20;
 }
 .btn {
@@ -238,7 +254,7 @@ td {
 
 .table-wrap {
   background: white;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   overflow-x: auto;
@@ -262,6 +278,7 @@ td {
   padding: 12px 10px;
   border-bottom: 1px solid #f2f2f2;
   color: #333;
+  vertical-align: middle;
 }
 
 .price-table tbody tr:hover {
@@ -269,6 +286,36 @@ td {
 }
 .pl-hamburger {
   display: none;
+}
+
+.price-table input {
+  border: 1px solid #d6d6d6;
+  background: #f9f9f9;
+  padding: 8px 14px;
+  border-radius: 20px;
+  outline: none;
+  width: 90%;
+  font-size: 13px;
+  transition: 0.2s ease-in-out;
+}
+
+.price-table input:focus {
+  border: 1px solid #5bc0de;
+  background: #ffffff;
+}
+.save-btn {
+  background-color: #5bc0de;
+  border: none;
+  color: white;
+  padding: 5px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #31b0d5;
 }
 
 @media (max-width: 1024px) {
