@@ -211,6 +211,11 @@
 .col-unit{
   width: 70px;
 }
+.col-inprice,
+.col-price,
+.col-stock{
+  width: 60px;
+}
 .col-menu,
 .col-article,
 .col-product,
