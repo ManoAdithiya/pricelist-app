@@ -198,6 +198,7 @@ function PriceList() {
                   <th className="col-unit">Unit</th>
                   <th className="col-stock">In Stock</th>
                   <th className="col-desc">Description</th>
+                  <th className="arrow-right"></th>
                 </tr>
               </thead>
               <tbody>
