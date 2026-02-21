@@ -218,7 +218,6 @@ function PriceList() {
                             value={editData.article_no}
                             onChange={handleChange}
                             onBlur={handleBlurSave}
-                            autoFocus
                           />
                         ) : (
                           <span className="pill">{item.article_no}</span>
