@@ -29,6 +29,8 @@ function PriceList() {
   const [editId, setEditId] = useState(null);
   const [editData, setEditData] = useState({});
 
+  const token = localStorage.getItem("token");
+
   const handleEditClick = (item) => {
     setEditId(item.id);
     setEditData(item);
@@ -39,31 +41,32 @@ function PriceList() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSave = async () => {
-    const token = localStorage.getItem("token");
+  const handleBlurSave = async () => {
+    if (!editId) return;
 
-    await axios.put(
-      `${import.meta.env.VITE_API_BASE_URL}/api/pricelist/${editId}`,
-      editData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+    try {
+      await axios.put(
+        `${import.meta.env.VITE_API_BASE_URL}/api/pricelist/${editId}`,
+        editData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      },
-    );
+      );
 
-    setProducts((prev) =>
-      prev.map((p) => (p.id === editId ? { ...p, ...editData } : p)),
-    );
+      setProducts((prev) =>
+        prev.map((p) => (p.id === editId ? { ...p, ...editData } : p)),
+      );
 
-    setEditId(null);
+      setEditId(null);
+    } catch (err) {
+      console.log("Auto Save Error:", err);
+    }
   };
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const token = localStorage.getItem("token");
-
       const res = await axios.get(
         import.meta.env.VITE_API_BASE_URL + "/api/pricelist",
         {
@@ -214,6 +217,8 @@ function PriceList() {
                             name="article_no"
                             value={editData.article_no}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
+                            autoFocus
                           />
                         ) : (
                           <span className="pill">{item.article_no}</span>
@@ -225,6 +230,7 @@ function PriceList() {
                             name="product"
                             value={editData.product}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
                           />
                         ) : (
                           <span className="pill">{item.product}</span>
@@ -236,6 +242,7 @@ function PriceList() {
                             name="in_price"
                             value={editData.in_price}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
                           />
                         ) : (
                           <span className="pill">{item.in_price}</span>
@@ -247,6 +254,7 @@ function PriceList() {
                             name="price"
                             value={editData.price}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
                           />
                         ) : (
                           <span className="pill">{item.price}</span>
@@ -258,6 +266,7 @@ function PriceList() {
                             name="unit"
                             value={editData.unit}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
                           />
                         ) : (
                           <span className="pill">{item.unit}</span>
@@ -269,6 +278,7 @@ function PriceList() {
                             name="stock"
                             value={editData.stock}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
                           />
                         ) : (
                           <span className="pill">{item.stock}</span>
@@ -280,23 +290,18 @@ function PriceList() {
                             name="description"
                             value={editData.description}
                             onChange={handleChange}
+                            onBlur={handleBlurSave}
                           />
                         ) : (
                           <span className="pill">{item.description}</span>
                         )}
                       </td>
                       <td className="arrow-right">
-                        {editId === item.id ? (
-                          <button className="save-btn" onClick={handleSave}>
-                            Save
-                          </button>
-                        ) : (
-                          <img
-                            src={dotsIcon}
-                            onClick={() => handleEditClick(item)}
-                            style={{ cursor: "pointer" }}
-                          />
-                        )}
+                        <img
+                          src={dotsIcon}
+                          onClick={() => handleEditClick(item)}
+                          style={{ cursor: "pointer" }}
+                        />
                       </td>
                     </tr>
                   ))}

@@ -277,21 +277,6 @@ th.col-menu {
 .arrow-left img:hover {
   opacity: 20;
 }
-.save-btn {
-  background-color: #5bc0de;
-  border: none;
-  color: white;
-  width: 37px;
-  height: 20px;
-  padding: 0;
-  border-radius: 10px;
-  font-size: 11px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-.save-btn:hover {
-  background-color: #31b0d5;
-}
 .btn {
   display: flex;
   align-items: center;
