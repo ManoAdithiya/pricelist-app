@@ -184,8 +184,8 @@
   vertical-align: middle;
   cursor: pointer;
 }
-.pill {
-  display: inline-block;
+
+td input {
   width: 100%;
   max-width: 100%;
   height: 28px;
@@ -194,25 +194,17 @@
   border-radius: 10px;
   border: 1px solid #b0c7f6;
   background: #ffffff;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-td input {
-  width: 100%;
-  max-width: 100%;
-  height: 28px;
-  padding: 0 12px;
-  border-radius: 10px;
-  border: 1px solid #b0c7f6;
-  background: #eaf3ff;
-  font-size: 12px;
+  font-size: 13px;
   outline: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.price-table td input:focus {
+  border: 1px solid #5bc0de;
+  background: #eaf3ff;
+}
+
 .col-product {
   width: 200px;
 }
@@ -224,7 +216,7 @@ td input {
   width: 70px;
 }
 .col-unit {
-  width: 70px;
+  width: 30px;
 }
 .col-inprice,
 .col-price,

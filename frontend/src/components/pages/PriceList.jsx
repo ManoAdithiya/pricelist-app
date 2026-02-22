@@ -26,47 +26,15 @@ import serviceIcon from "../../assets/service.png";
 
 function PriceList() {
   const [products, setProducts] = useState([]);
-  const [editId, setEditId] = useState(null);
-  const [editData, setEditData] = useState({});
 
   const token = localStorage.getItem("token");
 
-  const handleEditClick = (item) => {
-    setEditId(item.id);
-    setEditData(item);
-  };
-  const handleChange = (e) => {
-    setEditData({
-      ...editData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleBlurSave = async () => {
-    if (!editId) return;
-
-    try {
-      await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/api/pricelist/${editId}`,
-        editData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
-
-      setProducts((prev) =>
-        prev.map((p) => (p.id === editId ? { ...p, ...editData } : p)),
-      );
-
-      setEditId(null);
-    } catch (err) {
-      console.log("Auto Save Error:", err);
-    }
-  };
-
   useEffect(() => {
-    const fetchProducts = async () => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
       const res = await axios.get(
         import.meta.env.VITE_API_BASE_URL + "/api/pricelist",
         {
@@ -77,10 +45,32 @@ function PriceList() {
       );
 
       setProducts(res.data);
-    };
+    } catch (err) {
+      console.log("Fetch error:", err);
+    }
+  };
 
-    fetchProducts();
-  }, []);
+  const handleChange = (id, field, value) => {
+    setProducts((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, [field]: value } : item)),
+    );
+  };
+
+  const handleBlurSave = async (item) => {
+    try {
+      await axios.put(
+        `${import.meta.env.VITE_API_BASE_URL}/api/pricelist/${item.id}`,
+        item,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+    } catch (err) {
+      console.log("Auto Save Error:", err);
+    }
+  };
 
   return (
     <div className="layout">
@@ -112,7 +102,7 @@ function PriceList() {
           <h3 className="menu-title">Menu</h3>
 
           <ul className="menu">
-            <li className="active">
+            <li>
               <img src={invoice} className="invoices" />
               Invoices
             </li>
@@ -212,95 +202,77 @@ function PriceList() {
                         <img src={arrowIcon} />
                       </td>
                       <td className="col-article">
-                        {editId === item.id ? (
-                          <input
-                            name="article_no"
-                            value={editData.article_no}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.article_no}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.article_no || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "article_no", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="col-product">
-                        {editId === item.id ? (
-                          <input
-                            name="product"
-                            value={editData.product}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.product}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.product || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "product", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="col-inprice">
-                        {editId === item.id ? (
-                          <input
-                            name="in_price"
-                            value={editData.in_price}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.in_price}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.in_price || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "in_price", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="col-price">
-                        {editId === item.id ? (
-                          <input
-                            name="price"
-                            value={editData.price}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.price}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.price || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "price", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="col-unit">
-                        {editId === item.id ? (
-                          <input
-                            name="unit"
-                            value={editData.unit}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.unit}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.unit || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "unit", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="col-stock">
-                        {editId === item.id ? (
-                          <input
-                            name="stock"
-                            value={editData.stock}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.stock}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.stock || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "stock", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="col-desc">
-                        {editId === item.id ? (
-                          <input
-                            name="description"
-                            value={editData.description}
-                            onChange={handleChange}
-                            onBlur={handleBlurSave}
-                          />
-                        ) : (
-                          <span className="pill">{item.description}</span>
-                        )}
+                        <input
+                          className="table-input pill"
+                          value={item.description || ""}
+                          onChange={(e) =>
+                            handleChange(item.id, "description", e.target.value)
+                          }
+                          onBlur={() => handleBlurSave(item)}
+                        />
                       </td>
                       <td className="arrow-right">
-                        <img
-                          src={dotsIcon}
-                          onClick={() => handleEditClick(item)}
-                          style={{ cursor: "pointer" }}
-                        />
+                        <img src={dotsIcon} style={{ cursor: "pointer" }} />
                       </td>
                     </tr>
                   ))}
